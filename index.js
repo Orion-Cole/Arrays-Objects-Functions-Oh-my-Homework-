@@ -231,6 +231,8 @@ let users = [
     }
   ];
 
+//------------------------------------
+
 let property = 'phone';
 
 const nullifyProperty = (p) => {
@@ -242,3 +244,22 @@ const nullifyProperty = (p) => {
 
 nullifyProperty(property)
 console.log(users)
+
+//------------------------------------
+
+let email = 'Lucio_Hettinger@annie.ca';
+
+const getUserInfo = (e) => {
+    users.forEach((object) => {
+        if (object.email == e) {
+            let name = object.name;
+            let stuff = ['User profile of ' + name + ' found.', object];
+            return console.log(stuff)
+        }
+    })
+}
+
+getUserInfo(email)
+
+//------------------------------------
+
