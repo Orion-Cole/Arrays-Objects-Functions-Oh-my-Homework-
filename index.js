@@ -298,3 +298,47 @@ const assignPoints = (ump) => {
 
 assignPoints(usersMonthlyPoints)
 
+//Make a variable months and set it equal to a number
+//Make a function that For every month, add points to the users’ account.
+
+let months = 7;
+let user = 'Delphine';
+
+const addPoints = (m, u) => {
+  users.forEach((object) => {
+    if (object.username == u) {
+      object.monthlyPoints += m * 5;
+      return console.log(object)
+    }
+  })
+}
+
+addPoints(months, user)
+
+//This month is special! We are going to add an additional 10% to everyone’s point totals! Create a function to do this (example: if someone has 200 points, we will bump it up to 220)
+
+
+let percentBonus = 10;
+
+const addBonusPoints = (p) => {
+  users.forEach((object) => {
+    object.monthlyPoints = object.monthlyPoints + object.monthlyPoints * p/100;
+  })
+  return console.log(users)
+}
+
+addBonusPoints(percentBonus)
+
+//The user with email Chaim_McDermott@dana.io has submitted a request to delete her account. Make a function that will remove her from the array (taking the email as a parameter).
+
+let userToDelete = 'Chaim_McDermott@dana.io';
+
+const deleteUser = (u) => {
+  let usersIndex = users.findIndex((object) => {
+    object.email == u;
+  })
+  users.splice(usersIndex-1, 1);
+  return console.log(users)
+}
+
+deleteUser(userToDelete)
