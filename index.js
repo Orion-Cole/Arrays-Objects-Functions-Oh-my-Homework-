@@ -239,11 +239,10 @@ const nullifyProperty = (p) => {
     users.forEach((object) => {
         object[p] = null;
     })
-    console.log('----- ' + p + ' properties have been nullified. -----')
+    return console.log('--- ' + p + ' properties have been nullified. ---', users)
 }
 
 nullifyProperty(property)
-console.log(users)
 
 //Make a function called getUserInfo that returns the user object found using the email passed as a parameter
 
@@ -253,8 +252,7 @@ const getUserInfo = (ue) => {
     users.forEach((object) => {
         if (object.email == ue) {
             let name = object.name;
-            let stuff = ['User profile of ' + name + ' found.', object];
-            return console.log(stuff)
+            return console.log('--- User profile of ' + name + ' found. ---', object)
         }
     })
 }
@@ -274,7 +272,7 @@ const changeUsername = (e, nu) => {
   users.forEach((object) => {
     if (object.email == e) {
       object.name = nu;
-      return console.log(object)
+      return console.log('--- Username of ' + e + ' changed to ' + nu + ' ---', object)
     }
   })
 }
@@ -293,7 +291,7 @@ const assignPoints = (ump) => {
   for (i=0;i<ump.length;i++) {
     users[i].monthlyPoints = ump[i];
   }
-  return console.log(users)
+  return console.log('--- Monthly points based on user subscription have been assigned ---', users)
 }
 
 assignPoints(usersMonthlyPoints)
@@ -308,7 +306,7 @@ const addPoints = (m, u) => {
   users.forEach((object) => {
     if (object.username == u) {
       object.monthlyPoints += m * 5;
-      return console.log(object)
+      return console.log('--- ' + u + ' has been awarded points for ' + m + ' months of activity. ---', object)
     }
   })
 }
@@ -324,7 +322,7 @@ const addBonusPoints = (p) => {
   users.forEach((object) => {
     object.monthlyPoints = object.monthlyPoints + object.monthlyPoints * p/100;
   })
-  return console.log(users)
+  return console.log('--- All users have been awarded a ' + p + ' percent bonus to their point totals. ---', users)
 }
 
 addBonusPoints(percentBonus)
@@ -338,7 +336,7 @@ const deleteUser = (u) => {
     object.email == u;
   })
   users.splice(usersIndex-1, 1);
-  return console.log(users)
+  return console.log('--- User account with email ' + u + ' has been deleted. ---', users)
 }
 
 deleteUser(userToDelete)
