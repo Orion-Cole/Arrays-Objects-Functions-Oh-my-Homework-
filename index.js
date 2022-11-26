@@ -231,7 +231,7 @@ let users = [
     }
   ];
 
-//------------------------------------
+//We no longer want to be responsible for the users’ phone numbers. Please create a function that will loop through the array and set the phone numbers = null. Call the function.
 
 let property = 'phone';
 
@@ -245,13 +245,13 @@ const nullifyProperty = (p) => {
 nullifyProperty(property)
 console.log(users)
 
-//------------------------------------
+//Make a function called getUserInfo that returns the user object found using the email passed as a parameter
 
-let email = 'Lucio_Hettinger@annie.ca';
+let userEmail = 'Lucio_Hettinger@annie.ca';
 
-const getUserInfo = (e) => {
+const getUserInfo = (ue) => {
     users.forEach((object) => {
-        if (object.email == e) {
+        if (object.email == ue) {
             let name = object.name;
             let stuff = ['User profile of ' + name + ' found.', object];
             return console.log(stuff)
@@ -259,7 +259,42 @@ const getUserInfo = (e) => {
     })
 }
 
-getUserInfo(email)
+getUserInfo(userEmail)
 
-//------------------------------------
+//Kurtis Weissnat (Telly.Hoeger@billy.biz)  just submitted a request to change his username to “Eren Yeager”. We want to be able to change people’s usernames easily. 
+//Make a function that takes 2 parameters “email” and “newUsername”
+//The function should change the username of the user with that email
+//Pass your arguments changeUsername("Telly.Hoeger@billy.biz", “Eren Yeager”)
+
+
+let email = 'Telly.Hoeger@billy.biz';
+let newUsername = 'Eren Yeager';
+
+const changeUsername = (e, nu) => {
+  users.forEach((object) => {
+    if (object.email == e) {
+      object.name = nu;
+      return console.log(object)
+    }
+  })
+}
+
+changeUsername(email, newUsername)
+
+
+//We just started a points program and have a list of how many points each user gets each month based on their subscription. [50, 20, 40, 33, 60, 20, 90, 110, 15, 30] 
+//The array is ordered so that arr[0] ‘50’ is for the first user, etc.
+//Make a function that will Iterate through this array, grab the data, and create new properties on the objects called monthlyPoints and set it equal to the data
+//For example to first user should have a property monthlyPoints: 50
+
+let usersMonthlyPoints = [50, 20, 40, 33, 60, 20, 90, 110, 15, 30]; 
+
+const assignPoints = (ump) => {
+  for (i=0;i<ump.length;i++) {
+    users[i].monthlyPoints = ump[i];
+  }
+  return console.log(users)
+}
+
+assignPoints(usersMonthlyPoints)
 
